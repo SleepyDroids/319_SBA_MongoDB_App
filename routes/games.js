@@ -64,7 +64,9 @@ router.patch("/update/id/keyword/:id/:keyword", async (req, res) => {
   try {
     const id = req.params.id;
     const keyword = req.params.keyword;
-    const result = await Games.updateOne({ id }, { $push });
+    const result = await Games.updateOne({ _id: id }, { $push: { keywords: keyword.toLowerCase() } });
+    console.log(result);
+    res.send(result).status(200);
   } catch (e) {
     console.log(e);
     res.json({ error: e.message });
