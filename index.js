@@ -23,7 +23,7 @@ import gamesRouter from "./routes/games.js";
 import usersRouter from "./routes/users.js"
 
 app.use("/games", gamesRouter);
-app.use("/users", usersRouter)
+app.use("/users", usersRouter);
 
 app.get("/", (req, res) => {
   res.send("This is the main directory. WIP.");

@@ -4,6 +4,23 @@ import Users from "../models/users.js";
 
 const router = express.Router();
 
+router.patch("/update/id/username/:id/:user", async (req, res) => {
+  try {
+    const id = req.params.id;
+    const username = req.params.user;
+
+    const result = await Users.updateOne(
+      { _id: id },
+      { $set: { username } }
+    );
+    console.log(result);
+    res.status(200).json(result);
+  } catch (e) {
+    console.log(e);
+    res.json({ error: e.message });
+  }
+});
+
 router
   .route("/:id")
   .get(async (req, res) => {
@@ -31,22 +48,6 @@ router
     }
   });
 
-router.patch("/update/id/username/:id/:user", async (req, res) => {
-  try {
-    const id = req.params.id;
-    const username = req.params.user;
-
-    const result = await Users.updateOne(
-      { _id: id },
-      { $set: { username: username } }
-    );
-    console.log(result);
-    res.json(result).status(200);
-  } catch (e) {
-    console.log(e);
-    res.json({ error: e.message });
-  }
-});
 
 router
   .route("/")
