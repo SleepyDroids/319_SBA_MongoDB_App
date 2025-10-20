@@ -69,7 +69,7 @@ router.patch("/update/id/keyword/:id/:keyword", async (req, res) => {
       { $push: { keywords: keyword } }
     );
     console.log(result);
-    res.json(result).status(200);
+    res.status(200).json(result);
   } catch (e) {
     console.log(e);
     res.json({ error: e.message });
@@ -191,7 +191,7 @@ router
     }
   });
 
-router.get("/comp/platforms/id/:id", async (req, res) => {
+router.get("/platforms/id/:id", async (req, res) => {
   try {
     const aggregation = await Games.aggregate([
       {

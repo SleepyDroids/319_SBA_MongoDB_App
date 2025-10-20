@@ -58,7 +58,7 @@ console.log(test);
 // const testUserData =   {
 //   "username": "ThomasTheTankMain",
 //   "password": "foreverATankMain456",
-//   "isOnline:" false,
+//   "isOnline:" true,
 //   "prefs": {
 //     platforms: ["Windows", "Xbox", "Android"],
 //     keywords: ["Fantasy", "Role-playing", "Horror"],
