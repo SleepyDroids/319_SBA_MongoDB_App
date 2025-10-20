@@ -84,12 +84,13 @@ router
     }
   })
   .delete(async (req, res) => {
-    // remove the last added keyword from a user's preferences
+    // remove a specific entry from a user's keywords
     try {
       const username = req.params.user;
+      const keyword = req.params.keyword.toLowerCase();
       const result = await Users.updateOne(
         { username },
-        { $pop: { "prefs.keywords": 1 } }
+        { $pull: { "prefs.keywords": keyword } }
       );
       res.status(200).json(result);
     } catch (e) {
@@ -116,12 +117,13 @@ router
     }
   })
   .delete(async (req, res) => {
-    // remove the last added platform from a user's preferences
+    // remove a specific platform from a user's preferences
     try {
       const username = req.params.user;
+      const platform = req.params.platform.toLowerCase();
       const result = await Users.updateOne(
         { username },
-        { $pop: { "prefs.platforms": 1 } }
+        { $pull: { "prefs.platforms": platform } }
       );
       res.status(200).json(result);
     } catch (e) {
