@@ -6,6 +6,7 @@ const users = [
     prefs: {
       platforms: ["Windows", "Xbox"],
       keywords: ["Hero shooter", "Role-playing"],
+      gamesOwned: ["Baldur's Gate 3", "Marvel Rivals"],
     },
   },
   {
@@ -15,6 +16,7 @@ const users = [
     prefs: {
       platforms: ["Playstation", "Windows", "Xbox"],
       keywords: ["soulslike"],
+      gamesOwned: ["Elden Ring"],
     },
   },
   {
@@ -24,6 +26,7 @@ const users = [
     prefs: {
       platforms: ["Playstation", "iOS"],
       keywords: ["Hero shooter", "Role-playing", "gacha"],
+      gamesOwned: ["Marvel Rivals", "Zenless Zone Zero"],
     },
   },
   {
@@ -33,6 +36,7 @@ const users = [
     prefs: {
       platforms: ["iOS", "Android"],
       keywords: ["gacha", "role-playing"],
+      gamesOwned: ["Zenless Zone Zero", "Marvel Rivals"],
     },
   },
   {
@@ -42,6 +46,7 @@ const users = [
     prefs: {
       platforms: ["Windows", "Playstation"],
       keywords: ["Hero shooter", "Role-playing", "fantasy", "adventure"],
+      gamesOwned: ["Destiny 2", "Baldur's Gate 3", "Stardew Valley"],
     },
   },
 ];

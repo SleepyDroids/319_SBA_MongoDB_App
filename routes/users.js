@@ -132,6 +132,39 @@ router
     }
   });
 
+// add a game to a user's library by username
+router
+  .route("/update/user/games/:user/:game")
+  .patch(async (req, res) => {
+    try {
+      const username = req.params.user;
+      const game = req.params.game.toLowerCase();
+      const result = await Users.updateOne(
+        { username },
+        { $push: { "prefs.gamesOwned": game } }
+      );
+      res.status(200).json(result);
+    } catch (e) {
+      console.log(e);
+      res.json({ error: e.message });
+    }
+  })
+  .delete(async (req, res) => {
+    // remove a specific game from a user's library
+    try {
+      const username = req.params.user;
+      const game = req.params.game.toLowerCase();
+      const result = await Users.updateOne(
+        { username },
+        { $pull: { "prefs.gamesOwned": game } }
+      );
+      res.status(200).json(result);
+    } catch (e) {
+      console.log(e);
+      res.json({ error: e.message });
+    }
+  });
+
 // use username to get a user's preferred platforms
 router.get("/platforms/:user", async (req, res) => {
   try {
@@ -154,6 +187,20 @@ router.get("/keywords/:user", async (req, res) => {
     const keywords = result.prefs.keywords;
     // console.log(keywords);
     res.status(200).json(keywords);
+  } catch (e) {
+    console.log(e);
+    res.json({ error: e.message });
+  }
+});
+
+// use username to get a user's owned games
+router.get("/games/:user", async (req, res) => {
+  try {
+    const username = req.params.user;
+    const result = await Users.findOne({ username });
+    const games = result.prefs.gamesOwned;
+    // console.log(keywords);
+    res.status(200).json(games);
   } catch (e) {
     console.log(e);
     res.json({ error: e.message });

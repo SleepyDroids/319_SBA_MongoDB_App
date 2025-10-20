@@ -1,10 +1,12 @@
 import mongoose from "mongoose";
+import { type } from "os";
 import { boolean } from "webidl-conversions";
 
 const prefsSchema = new mongoose.Schema(
   {
     platforms: { type: [String], default: [] },
     keywords: { type: [String], default: [] },
+    gamesOwned: { type: [String], default: [] }
   },
   { _id: false } 
 );
