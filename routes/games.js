@@ -50,10 +50,10 @@ router
       if (!deletedGame) {
         return res
           .status(404)
-          .json({ error: "No document with that id exists." });
+          .json({ error: "No game with that id exists." });
       }
-      console.log("Document Deleted:", deletedGame._id);
-      res.status(200).json({ "Document Deleted": deletedGame._id });
+      console.log("Game Doc Deleted:", deletedGame._id);
+      res.status(200).json({ "Game Doc Deleted": deletedGame._id });
     } catch (e) {
       console.log(e);
       res.json({ error: e.message });
@@ -193,7 +193,7 @@ router
 
 router.get("/comp/platforms/id/:id", async (req, res) => {
   try {
-    const result = await Games.aggregate([
+    const aggregation = await Games.aggregate([
       {
         $match:
           {
@@ -208,7 +208,7 @@ router.get("/comp/platforms/id/:id", async (req, res) => {
           },
       },
     ]);
-    res.status(200).json(result);
+    res.status(200).json(aggregation);
   } catch (e) {
     console.log(e);
     res.json({ error: e.message });
