@@ -92,6 +92,33 @@ router.patch("/update/id/platform/:id/:platform", async (req, res) => {
   }
 });
 
+router.get("/search/keyword/:keyword", async (req, res) => {
+  try {
+    const keyword = req.params.keyword;
+    // using regex to account create case INsensitivity
+    const result = await Games.find({
+      keywords: { $regex: new RegExp(keyword, "i") },
+    });
+    res.status(200).json(result);
+  } catch (e) {
+    console.log(e);
+    res.json({ error: e.message });
+  }
+});
+
+router.get("/search/platform/:platform", async (req, res) => {
+  try {
+    const platform = req.params.platform;
+    const result = await Games.find({
+      platforms: { $regex: new RegExp(platform, "i") },
+    });
+    res.status(200).json(result);
+  } catch (e) {
+    console.log(e);
+    res.json({ error: e.message });
+  }
+});
+
 // all games data (/games) && post a new game
 router
   .route("/")
@@ -119,8 +146,6 @@ router
     }
   });
 
-// query for keywords /search/:keyword --> .filter?
-// query for platforms /search/:platform
 // query for esrb rating (maybe add age filters through aggregation?)
 // like return the esrb for a game and then also the age range for that rating?
 // add aggregation to group a title of a game to its available platforms
