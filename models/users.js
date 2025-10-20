@@ -22,9 +22,8 @@ const userSchema = new mongoose.Schema(
       required: true,
     },
     isOnline: {
-      type: boolean,
+      type: Boolean,
       default: false
-
     },
     prefs: {
       type: prefsSchema,

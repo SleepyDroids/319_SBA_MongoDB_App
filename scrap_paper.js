@@ -21,36 +21,46 @@ gamesLibrary.statics.findByTitle = function (title) {
   return this.find({ title: new RegExp(title, "i") });
 };
 
-const test = Games.findByTitle("Elden Ring")
+const test = Games.findByTitle("Elden Ring");
 console.log(test);
 
 // dummy data to test post requests for /games route
-const testGameData =  {
-    "title": "Dragon Age: The Veilguard",
-    "developer": "BioWare",
-    "publisher": "Electronic Arts",
-    "ESRB": "M",
-    "platforms": ["Windows", "Xbox", "Playstation"],
-    "keywords": [
-      "role-playing",
-      "fantasy",
-      "romance",
-      "single player",
-      "character creation"
-    ],
-    "release_Date": "2024-10-31T00:00:00.000Z"
-  }
-  // trailing commas aren't allowed in json
-  // and neither are functions so dates
-  // need to be converted before posting
+// {
+//     "title": "Dead By Daylight",
+//     "developer": "Behaviour Interactive",
+//     "publisher": "Behaviour Interactive",
+//     "ESRB": "M",
+//     "platforms": ["Windows", "Xbox", "Playstation", "Nintendo Switch"],
+//     "keywords": [
+// "survival",
+// "horror",
+// "survival horror",
+// "online multiplayer"
+//     ],
+//     "release_Date": "2016-06-14T00:00:00.000Z"
+//   }
+//   {
+//     "title": "Dragon Age: The Veilguard",
+//     "developer": "BioWare",
+//     "publisher": "Electronic Arts",
+//     "ESRB": "M",
+//     "platforms": ["Windows", "Xbox", "Playstation"],
+//     "keywords": [
+//       "role-playing",
+//       "fantasy",
+//       "romance",
+//       "single player",
+//       "character creation"
+//     ],
+//     "release_Date": "2024-10-31T00:00:00.000Z"
+//   }
 
-  // const testUserData =   {
-  //   "username": "ThomasTheTankMain",
-  //   "password": "foreverATankMain456",
-  //   "isOnline:" false,
-  //   "prefs": {
-  //     platforms: ["Windows", "Xbox", "Android"],
-  //     keywords: ["Fantasy", "Role-playing", "Horror"],
-  //   }
-  // }
-
+// const testUserData =   {
+//   "username": "ThomasTheTankMain",
+//   "password": "foreverATankMain456",
+//   "isOnline:" false,
+//   "prefs": {
+//     platforms: ["Windows", "Xbox", "Android"],
+//     keywords: ["Fantasy", "Role-playing", "Horror"],
+//   }
+// }

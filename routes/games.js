@@ -63,10 +63,13 @@ router
 router.patch("/update/id/keyword/:id/:keyword", async (req, res) => {
   try {
     const id = req.params.id;
-    const keyword = req.params.keyword;
-    const result = await Games.updateOne({ _id: id }, { $push: { keywords: keyword.toLowerCase() } });
+    const keyword = req.params.keyword.toLowerCase();
+    const result = await Games.updateOne(
+      { _id: id },
+      { $push: { keywords: keyword } }
+    );
     console.log(result);
-    res.send(result).status(200);
+    res.json(result).status(200);
   } catch (e) {
     console.log(e);
     res.json({ error: e.message });
@@ -77,6 +80,12 @@ router.patch("/update/id/platform/:id/:platform", async (req, res) => {
   try {
     const id = req.params.id;
     const platform = req.params.platform;
+    const result = await Games.updateOne(
+      { _id: id },
+      { $push: { platforms: platform } }
+    );
+    console.log(result);
+    res.json(result).status(200);
   } catch (e) {
     console.log(e);
     res.json({ error: e.message });
@@ -110,7 +119,7 @@ router
     }
   });
 
-// query for keywords /search/:keyword --> .filter? 
+// query for keywords /search/:keyword --> .filter?
 // query for platforms /search/:platform
 // query for esrb rating (maybe add age filters through aggregation?)
 // like return the esrb for a game and then also the age range for that rating?
