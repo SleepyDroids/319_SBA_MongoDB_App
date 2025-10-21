@@ -13,48 +13,55 @@ async function createSaves() {
   console.log("Connected to mongodb!");
   try {
     const autosave = await Users.aggregate([
+  {
+    $lookup:
       {
-        $lookup: {
-          from: "games",
-          localField: "prefs.gamesOwned",
-          foreignField: "title",
-          as: "saves_cloud",
-        },
-      },
+        from: "games",
+        localField: "prefs.gamesOwned",
+        foreignField: "title",
+        as: "saves_cloud"
+      }
+  },
+  {
+    $unwind:
       {
-        $unwind: {
-          path: "$saves_cloud",
-        },
-      },
+        path: "$saves_cloud",
+        preserveNullAndEmptyArrays: false
+      }
+  },
+  {
+    $project:
       {
-        $project: {
-          username: 1,
-          "saves_cloud._id": 1,
-          "saves_cloud.title": 1,
-        },
-      },
+        user: mongoose.Types.ObjectId.createFromHexString("$_id"),
+        game: mongoose.Types.ObjectId.createFromHexString("$saves_cloud._id"),
+        _id: 0,
+        title: "$saves_cloud.title"
+      }
+  },
+  {
+    $addFields:
       {
-        $addFields: {
-          save_name: "auto save",
-          screenshot: "screenshot.jpg",
-        },
-      },
-      {
-        $merge: {
-          into: "saves",
-          on: "_id",
-          whenMatched: "replace",
-          whenNotMatched: "insert",
-        },
-      },
-    ]);
+        save_name: "auto save",
+        screenshot: "screenshot.jpg"
+      }
+  },
+  {
+    $out:
 
+      {
+        db: "legit_vg_cloud",
+        coll: "saves"
+      }
+  }
+]);
+console.log(autosave)
     return autosave;
   } catch (e) {
     console.log(e);
-  } finally {
-    await mongoose.disconnect();
   }
+  // } finally {
+  //   await mongoose.disconnect();
+  // }
 }
 
 createSaves();
