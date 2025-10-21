@@ -5,6 +5,7 @@ const saves = [
     screenshot: "screenshot 001.png",
     game_id: "",
     user_id: "",
+    uploaded: true,
   },
   {
     name: "Auto Save 002",
@@ -12,6 +13,7 @@ const saves = [
     screenshot: "screenshot 044.png",
     game_id: "",
     user_id: "",
+    uploaded: true,
   },
   {
     name: "Auto Save 003",
@@ -19,6 +21,7 @@ const saves = [
     screenshot: "screenshot 022.svg",
     game_id: "",
     user_id: "",
+    uploaded: false,
   },
   {
     name: "Temporay Decision Save 001",
@@ -26,6 +29,7 @@ const saves = [
     screenshot: "screenshot 005.jpg",
     game_id: "",
     user_id: "",
+    uploaded: false,
   },
   {
     name: "Temporay Decision Save 003",
@@ -33,6 +37,7 @@ const saves = [
     screenshot: "screenshot 006.jpg",
     game_id: "",
     user_id: "",
+    uploaded: true,
   },
   {
     name: "before boss battle save 001",
@@ -40,6 +45,7 @@ const saves = [
     screenshot: "screenshot 112.jpg",
     game_id: "",
     user_id: "",
+    uploaded: true,
   },
   {
     name: "before boss battle save 002",
@@ -47,6 +53,7 @@ const saves = [
     screenshot: "screenshot 089.jpg",
     game_id: "",
     user_id: "",
+    uploaded: false,
   },
   {
     name: "before boss battle save 003",
@@ -54,6 +61,7 @@ const saves = [
     screenshot: "screenshot 011.jpg",
     game_id: "",
     user_id: "",
+    uploaded: true,
   },
 ];
 
