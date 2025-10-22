@@ -133,6 +133,7 @@ router.get("/search/title/:title", async (req, res) => {
   }
 });
 
+// get the ESRB rating with an age range attached as an object
 router.get("/search/rating/:rating", async (req, res) => {
   try {
     const rating = req.params.rating;

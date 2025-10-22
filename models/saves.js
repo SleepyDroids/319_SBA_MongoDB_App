@@ -1,31 +1,32 @@
 import mongoose from "mongoose";
-import { ObjectId } from "bson";
+// import { ObjectId } from "bson";
 import { Types } from "mongoose";
 
 const savesSchema = new mongoose.Schema(
   {
+    username: {
+      type: String,
+      required: true,
+    },
     title: {
       type: String,
-      required: true
+      required: true,
     },
     gameTitle: {
       type: String,
+      required: true,
     },
     screenshot: {
       type: String,
     },
     game_id: {
-      type: ObjectId,
-      required: true
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
     },
     user_id: {
-      type: ObjectId,
-      required: true
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
     },
-    uploaded: {
-      type: Boolean,
-      default: false
-    }
   },
   { timestamps: true }
 );
