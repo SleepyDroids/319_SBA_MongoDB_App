@@ -17,7 +17,7 @@ To seed the data needed to Compass, please run: **npm run seed-all** as that wil
 * GET /games/search/title/:title — Find games by title (case-insensitive).
 * GET /games/search/keyword/:keyword — Find games by keyword (case-insensitive).
 * GET /games/search/platform/:platform — Find games by platform (case-insensitive).
-* GET /games/search/rating/:rating — Find by ESRB and return a note about age range for * the rating.
+* GET /games/search/rating/:rating — Find by ESRB and return a note about age range.
 ### Users 🖥️
 
 * GET /users — Return all users.
@@ -33,8 +33,8 @@ To seed the data needed to Compass, please run: **npm run seed-all** as that wil
 * DELETE /users/update/user/games/:user/:game — Remove a specific game title from a user’s owned games.
 * GET /users/status/:status — List users by status: online or offline.
 * GET /users/platforms/:user — Returns the platforms a user owns/prefers.
-* GET /users/keywords/:user — Returns the keywords  for a user.
-* GET /users/games/:user — Returns the games owned  for a user.
+* GET /users/keywords/:user — Returns the keywords for a user.
+* GET /users/games/:user — Returns the games owned for a user.
 
 ### Saves 💾
 
