@@ -18,6 +18,7 @@ To seed the data needed to Compass, please run: **npm run seed-all** as that wil
 * GET /games/search/keyword/:keyword — Find games by keyword (case-insensitive).
 * GET /games/search/platform/:platform — Find games by platform (case-insensitive).
 * GET /games/search/rating/:rating — Find by ESRB and return a note about age range.
+
 ### Users 🖥️
 
 * GET /users — Return all users.

@@ -28,7 +28,7 @@ app.use("/users", usersRouter);
 app.use("/saves", savesRouter);
 
 app.get("/", (req, res) => {
-  res.send("This is the main directory. WIP.");
+  res.send("This is the main directory. Please refer to the README.md for all paths.");
 });
 
 app.listen(port, () => {
