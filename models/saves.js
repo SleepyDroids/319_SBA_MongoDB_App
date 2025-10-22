@@ -1,6 +1,4 @@
 import mongoose from "mongoose";
-// import { ObjectId } from "bson";
-import { Types } from "mongoose";
 
 const savesSchema = new mongoose.Schema(
   {

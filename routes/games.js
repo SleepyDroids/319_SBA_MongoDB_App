@@ -192,29 +192,30 @@ router
     }
   });
 
-router.get("/platforms/id/:id", async (req, res) => {
-  try {
-    const aggregation = await Games.aggregate([
-      {
-        $match:
-          {
-            _id: req.params.id,
-          },
-      },
-      {
-        $project:
-          {
-            title: 1,
-            platforms: 1,
-          },
-      },
-    ]);
-    res.status(200).json(aggregation);
-  } catch (e) {
-    console.log(e);
-    res.json({ error: e.message });
-  }
-});
+// had issues getting this aggregation to work properly
+// router.get("/platforms/id/:id", async (req, res) => {
+//   try {
+//     const aggregation = await Games.aggregate([
+//       {
+//         $match:
+//           {
+//             _id: req.params.id,
+//           },
+//       },
+//       {
+//         $project:
+//           {
+//             title: 1,
+//             platforms: 1,
+//           },
+//       },
+//     ]);
+//     res.status(200).json(aggregation);
+//   } catch (e) {
+//     console.log(e);
+//     res.json({ error: e.message });
+//   }
+// });
 
 // add aggregation to group a title of a game to its available platforms
 // or try to create a static function who knows man

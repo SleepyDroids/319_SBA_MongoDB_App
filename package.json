@@ -5,7 +5,12 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+
+    "seed-users": "node scripts/seed_users.js",
+    "seed-games": "node scripts/seed_games.js",
+    "seed-saves": "node scripts/seed_saves.js",
+    "seed-all": "npm run seed-users && npm run seed-games && npm run seed-saves"
   },
   "keywords": [],
   "author": "",
